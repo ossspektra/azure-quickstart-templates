@@ -17,6 +17,7 @@ function usage
 }
 
 fqdn=$1
+pass=$2
 if [ -z "${fqdn}" ];then
   usage
 fi
@@ -35,6 +36,10 @@ echo "Install started of PE" > /tmp/pe_install.log
 # Use configure-pe.rb to configure PE
 exec /opt/puppetlabs/puppet/bin/ruby /opt/puppetlabs/azure/bin/configure-pe.rb -m "${fqdn}" >> /tmp/pe_install.log 2>&1
 die "exec /opt/puppetlabs/azure/bin/configure-pe.rb failed"
+
+exec /opt/puppetlabs/azure/bin/configure-pe.rb -i -p "${pass}"
+die "exec /opt/puppetlabs/azure/bin/configure-pe.rb failed"
+
 
 while :
 do
