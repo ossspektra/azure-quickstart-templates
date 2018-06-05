@@ -875,9 +875,9 @@
         "[concat('Microsoft.Network/networkInterfaces/', variables('puppetMasterNicName'))]"
       ],
       "plan": {
-        "name": "2016-1",
-        "product": "puppet-enterprise",
-        "publisher": "puppet"
+                "name": "2017-2",
+                "product": "puppet-enterprise",
+                "publisher": "puppet"
       },
       "properties": {
         "availabilitySet": {
@@ -948,7 +948,7 @@
           ]
         },
         "protectedSettings": {
-          "commandToExecute": "./wait.sh"
+          "commandToExecute": "[concat('./wait.sh ', reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressNamePuppetMaster')), '2016-03-30').dnsSettings.fqdn)]"
         }
       }
     },
