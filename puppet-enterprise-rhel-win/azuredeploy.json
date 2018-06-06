@@ -1034,13 +1034,15 @@
         "[concat('Microsoft.Compute/virtualMachines/', variables('puppetMasterVmName'),'/extensions/CustomScriptPuppet')]"
       ],
       "properties": {
-        "publisher": "Puppet",
-        "type": "PuppetAgent",
-        "typeHandlerVersion": "1.5",
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.7",
         "autoUpgradeMinorVersion": true,
-        "protectedSettings": {
-          "PUPPET_MASTER_SERVER": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressNamePuppetMaster')), '2016-03-30').dnsSettings.fqdn]"
-        }
+                "settings": {
+          "fileUris": [
+            "[concat(parameters('_artifactslocation'),'scripts/install2.ps1',parameters('_artifactsLocationSasToken'))]"
+          ],
+"[concat('powershell -ExecutionPolicy Unrestricted -File \"',  'scripts/install2.ps1',  '\" \"', reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressNamePuppetMaster')), '2016-03-30').dnsSettings.fqdn)]\""        }
       }
     },
     {
