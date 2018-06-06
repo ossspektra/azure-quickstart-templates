@@ -9,7 +9,7 @@ sed -i "2i$1 $puname" /etc/hosts
 
 #yum install puppet-agent -y
 
-curl -k https://$2:8140/packages/current/install.bash | sudo bash
+curl -k https://$2:8140/packages/current/install.bash | bash
 
 export PATH=/opt/puppetlabs/bin:$PATH
 systemctl start puppet
