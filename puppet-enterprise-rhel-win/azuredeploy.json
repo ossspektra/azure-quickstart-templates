@@ -948,7 +948,7 @@
           ]
         },
         "protectedSettings": {
-          "commandToExecute": "[concat('./wait.sh ', reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressNamePuppetMaster')), '2016-03-30').dnsSettings.fqdn, ' ', parameters('puppetConsolePassword'))]"
+          "commandToExecute": "[concat(variables('scriptStart'), 'wait.sh ', reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressNamePuppetMaster')), '2016-03-30').dnsSettings.fqdn, ' ', parameters('puppetConsolePassword'), variables('scriptClose'))]"
         }
       }
     },
