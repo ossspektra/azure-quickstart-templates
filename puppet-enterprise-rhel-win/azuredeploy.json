@@ -1046,6 +1046,7 @@
               "protectedSettings": {
           "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File \"',  'scripts/install2.ps1',  '\" \"', reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressNamePuppetMaster')), '2016-03-30').dnsSettings.fqdn)]\"" 
               }
+      }
     },
     {
       "type": "Microsoft.Compute/virtualMachines",
