@@ -14,11 +14,6 @@ function die
     exit 1
 }
 
-# Check command-line arguments
-if [ -n "$1" ]; then
-    echo "Usage: $ME" >&2
-    exit 1
-fi
 
 # Check for root permissions
 [ $EUID -ne 0 ] && die "script requires root permissions"
