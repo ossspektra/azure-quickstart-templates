@@ -64,13 +64,13 @@ Build your Puppet Enterprise environment on Azure in a few simple steps:
 - Fill in all the required parameter values. Accept the terms and condition on click Purchase. 
 - Access the deployment job once it is successful. In deployment job output you will find the Public IP Address and FQDN  of master VM which can be used to connect to the Puppet Console. Make a note of the FQDN of Puppet Master VM.Deployment will also output the public IP of load balancer, which can be used to connect to agents VM's via SSH or RDP as applicable.
 - SSH into the Puppet Master VM with the credentials you provided and the FQDN
-- Execute "*sudo su -*" command to get root access
+- Execute "*sudo su -*" command to get root access. You will have to enter your vm user password again if prompted.
 - Execute the following command to configure Puppet Console Admin Password:
-sudo /opt/puppetlabs/puppet/bin/ruby /opt/puppetlabs/server/data/enterprise/modules/pe_install/files/set_console_admin_password.rb <YOUR NEW PASSWORD>
-- Access Puppet Console with the fqdn of master vm noted in above step by accessing https://{fqdn}
-Note: Replace {fqdn} with the Fqdn or IP address which you copied earlier.
+**sudo /opt/puppetlabs/puppet/bin/ruby /opt/puppetlabs/server/data/enterprise/modules/pe_install/files/set_console_admin_password.rb <YOUR NEW PASSWORD>**
+- Access Puppet Console with the fqdn of master vm noted in above step by accessing **https://{fqdn}**
+Note: Replace **{fqdn}** with the Fqdn or IP address which you copied earlier.
 
-- Login with username as ‘admin’ and password specified in parameters during deployment. 
+- Login with username as ‘admin’ and password specified in the earlier command. 
 - You will now have access to working Puppet Master. 
 - Follow the post deployment configuration document [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/puppet-enterprise-rhel-win/images/puppet-post-deployment-guide.pdf) for further configuration. 
 
