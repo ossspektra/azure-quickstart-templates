@@ -67,7 +67,8 @@ Build your Puppet Enterprise environment on Azure in a few simple steps:
 - Execute "*sudo su -*" command to get root access. You will have to enter your vm user password again if prompted.
 - Execute the following command to configure Puppet Console Admin Password:
 
-**sudo /opt/puppetlabs/puppet/bin/ruby /opt/puppetlabs/server/data/enterprise/modules/pe_install/files/set_console_admin_password.rb <YOUR NEW PASSWORD>**
+**sudo /opt/puppetlabs/puppet/bin/ruby /opt/puppetlabs/server/data/enterprise/modules/pe_install/files/set_console_admin_password.rb** 
+**{password}**
   
 - Access Puppet Console with the fqdn of master vm noted in above step by accessing **https://{fqdn}**
 
